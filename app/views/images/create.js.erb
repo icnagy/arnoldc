@@ -1,6 +1,0 @@
-<% if @image.valid? %>
-	$('#images').html('<%= escape_javascript render( partial: 'images', locals: {images: @image.candidate_images}) %>');
-	$('#images').prepend("<p><%= escape_javascript @image.obfuscated_stock_reference %></p>");
-<% else %>
-	alert('<%= @image.errors.full_messages.join(',') %>');
-<% end %>

@@ -51,29 +51,40 @@ describe Image do
     it 'should return correct urls' do
       image = Image.new(reference: ' abcd 1234g ', registration: ' ab 12cde ')
       expect(image.candidate_images).to eq ['http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/f',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/i',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/r',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/4',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/5',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/6',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/7',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/8',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/9',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/10',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/11',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/12',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/f',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/i',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/r',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/4',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/5',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/6',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/7',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/8',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/9',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/10',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/11',
-        'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/12']
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/i',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/r',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/4',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/5',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/6',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/7',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/8',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/9',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/10',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/11',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/350/12',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/f',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/i',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/r',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/4',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/5',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/6',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/7',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/8',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/9',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/10',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/11',
+                                            'http://vcache.arnoldclark.com/imageserver/AEBDCCD2112B3AG/800/12']
+    end
+  end
+
+  describe '.candidate_images_cached' do
+    it 'should return the same number of images as #candidate_images' do
+      image = Image.new(reference: ' abcd 1234g ', registration: ' ab 12cde ')
+      expect(image.candidate_images.length).to eq image.candidate_images_cached.length
+    end
+    it 'should return the same urls as #candidate_images' do
+      image = Image.new(reference: ' abcd 1234g ', registration: ' ab 12cde ')
+      expect(image.candidate_images).to eq image.candidate_images_cached
     end
   end
 end
