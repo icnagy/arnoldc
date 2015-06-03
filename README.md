@@ -103,3 +103,7 @@ Time to initialize git:
 `git init`
 
 I use IntelliJ's RubyMine for IDE so I update the .gitignore file.
+
+# TODO: #
+
+Implement view cache: http://craftingruby.com/posts/2015/05/29/decouple-rails-controller-logic-with-pseudo-resources.html
