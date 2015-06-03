@@ -13,3 +13,4 @@
 /tmp
 .idea/
 .rvmrc
+public/cache/*

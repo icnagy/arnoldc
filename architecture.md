@@ -23,4 +23,14 @@ Add RSpec for testing.
 Create tests for the Image PORO class, which represents the reference number and registration number transformation as
 well as generating the candidate images
 
-config.action_controller.perform_caching = true
+## Day 3 ##
+
+All working well, but: why do we reproduce the obfuscated stock reference and the candidate images for each request?
+They could be cached, but thinking further, the whole response could be cached.
+
+Several options to consider:
+1. Current implementation uses UJS to render the results. We could cache the response.
+2. Rewrite the controller to use SEO friendly urls like: http://example.com/registration/RK56YTD/reference/ARNFC-U-7276
+ that can be cached
+
+As of now I go with option 1.

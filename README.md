@@ -104,6 +104,18 @@ Time to initialize git:
 
 I use IntelliJ's RubyMine for IDE so I update the .gitignore file.
 
-# TODO: #
+## Poking around obfuscated sctock reference number ##
 
-Implement view cache: http://craftingruby.com/posts/2015/05/29/decouple-rails-controller-logic-with-pseudo-resources.html
+While working on caching I noticed that some registration numbers will work with different combination of stock reference
+numbers. I started swapping the letters/number for the cache url and got to that each even letter has no contribution:
+
+XAXBXCXDXEXFXGX
+
+where X can be anything 0-9, a-z, A-Z or '-'.
+
+These:
+* http://vcache.arnoldclark.com/imageserver/XDXTXYX6X5XKXRX/350/f
+* http://vcache.arnoldclark.com/imageserver/zDzTzYz6z5zKzRz/350/f
+* http://vcache.arnoldclark.com/imageserver/0D0T0Y06050K0R0/350/f
+* http://vcache.arnoldclark.com/imageserver/-D-T-Y-6-5-K-R-/350/f
+return the same image.
