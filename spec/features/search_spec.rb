@@ -43,7 +43,7 @@ feature "Search", :type => :feature do
     click_button 'Show images'
     within '#images' do
       expect(page).to_not have_content "Reference is too short (minimum is 9 characters)"
-      expect(all('img').length).to eql 24
+      expect(all('img').length).to eql 12
     end
   end
 end

@@ -31,7 +31,7 @@ class Image
   end
 
   def updated_at
-    @updated_at ||= Time.new(1)
+    @updated_at ||= Time.new(2015)
   end
 
   def image_cache

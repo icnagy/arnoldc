@@ -1,3 +1,5 @@
-<% images.each do |image| %>
-	<%= image_tag image, alt: 'Picture of a car', class: "picture" %>
+<% (0..11).each do |index| %>
+	<%= link_to images[index+12], {'data-lightbox': 'lightbox'} do %>
+		<%= image_tag images[index], alt: 'Picture of a car', class: "picture", width: 350 %>
+	<% end %>
 <% end %>
