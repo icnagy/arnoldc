@@ -1,19 +1,32 @@
 <%= form_for 'image', url: '/images', method: :get, remote: true, authenticity_token: true do |f| %>
 	<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-	<%= f.label :registration_number %>
-	<%= f.text_field :registration %>
-	<%= f.label :stock_reference_number %>
-	<%= f.text_field :reference %>
-	<%= f.submit 'Show images' %>
+	<div class="fields">
+		<%= f.label :registration_number %>
+		<%= f.text_field :registration %>
+	</div>
+	<div class="fields">
+		<%= f.label :stock_reference_number %>
+		<%= f.text_field :reference %>
+	</div>
+	<div class="fields">
+		<%= f.submit 'Show images', {onclick: "ga('send', 'event', 'button', 'click', 'show images');_gs('event', 'Clicked show images',{registration: $('#image_registration').val(),reference: $('#image_reference').val()});return true;"} %>
+	</div>
 <% end %>
 
 <div id="images">
 <% if @image %>
+	  <%= content_for(:title) do%>
+	  	<%= @image.registration %>
+	  <% end %>
 	  <% cache(@image) do %>
 		  <% if @image.valid? %>
 			  <%= render partial: 'images', locals: {images: @image.candidate_images_cached} %>
 		  <% else %>
-			  <%= @image.errors.full_messages.join(',') %>
+			  <ul>
+			  	<%= @image.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			  </ul>
 		  <% end %>
 	  <% end %>
 <% end %>

@@ -1,8 +1,9 @@
 <% cache(@image) do %>
 	<% if @image.valid? %>
-		window.history.pushState('<%= "#{@image.registration}_#{@image.reference}" %>', 'Arnoldc', '/<%= @image.registration %>/<%= @image.reference %>');
+		window.history.pushState('<%= "#{@image.registration}_#{@image.reference}" %>', 'Arnold Clark Car Image Browser <%= @image.registration %>', '/<%= @image.registration %>/<%= @image.reference %>');
+		window.document.title = 'Arnold Clark Car Image Browser <%= @image.registration %>';
 		$('#images').html('<%= escape_javascript render( partial: 'images', locals: {images: @image.candidate_images_cached}) %>');
 	<% else %>
-		$('#images').html('<%= escape_javascript @image.errors.full_messages.join(',') %>');
+		$('#images').html('<ul><% @image.errors.full_messages.each do |error| %><li><%= escape_javascript error %></li><% end  %></ul>');
 	<% end %>
 <% end %>

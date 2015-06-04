@@ -1,5 +1,5 @@
 <% (0..11).each do |index| %>
-	<%= link_to images[index+12], {'data-lightbox': 'lightbox'} do %>
+	<%= link_to images[index+12], {'data-lightbox': 'lightbox'}, {onclick: "ga('send', 'event', 'image', 'click', 'lightbox');_gs('event', 'Clicked lightbox');return true;"} do %>
 		<%= image_tag images[index], alt: 'Picture of a car', class: "picture", width: 350 %>
 	<% end %>
 <% end %>

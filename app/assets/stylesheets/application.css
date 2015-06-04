@@ -15,14 +15,45 @@
  *= require lightbox
  */
 
-body{
+body {
     background-color: #fafafa;
     margin: 0px;
-    font-family: "Gotham A","Gotham B",Gotham,Verdana,sans-serif;
+    font-family: "Gotham A", "Gotham B", Gotham, Verdana, sans-serif;
     font-size: 13px;
     -webkit-text-size-adjust: none;
     min-height: 100%;
     font-weight: 400;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    padding: 36px 5% 36px 5%;
+}
+
+.fields {
+    padding: 10px;
+}
+
+label {
+    padding: 10px;
+}
+
+input {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 480px) {
+    img {
+        width: 80%;
+    }
+    input[type=submit] {
+        -webkit-appearance: none;
+        height: 4em;
+    }
 }
 
 .header {
@@ -44,10 +75,10 @@ body{
     position: relative;
 }
 
-.header .x #branding{
+.header .x #branding {
     display: block;
     padding: 0;
-    width: 360px;
+    width: 100%;
     background: url(http://cdn.arnoldclark.com/assets/images/arnold-clark-logo.png) no-repeat 0 10px;
     text-indent: -9000px;
     overflow: hidden;
@@ -55,8 +86,6 @@ body{
 }
 
 .content {
-    text-align: center;
-    margin: 72px 0 0 0;
     padding: 36px 5% 36px 5%;
 }
 
@@ -69,9 +98,11 @@ body{
     margin: 72px 0 0 0;
     text-align: center;
 }
-.footer a{
+
+.footer a {
     color: #eee;
 }
+
 .footer .disclaimer {
     background-color: #2A3131;
     padding: 18px;
