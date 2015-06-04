@@ -30,6 +30,7 @@ class Image
     @cache_key ||= 'images/' + [registration, reference].join('_')
   end
 
+  # will never change
   def updated_at
     @updated_at ||= Time.new(2015)
   end
@@ -56,7 +57,9 @@ class Image
     end
   end
 
-  def <=>(anOther)
-    registration <=> anOther.registration
+  # compare two objects. It is enough to compare based on the registration number, since the reference number is not used
+  # in any way in the process (see README.MD Poking around obfuscated sctock reference number)
+  def <=>(other)
+    registration <=> other.registration
   end
 end
