@@ -2,7 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.action_controller.perform_caching = true
-  config.cache_store = :file_store, "#{Rails.root.to_s}/public/cache"
+  config.cache_store = :file_store, "#{Rails.root.to_s}/tmp/cache"
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

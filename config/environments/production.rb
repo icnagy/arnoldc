@@ -24,9 +24,10 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  config.static_cache_control = "max-age=86400"
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
-  # config.assets.css_compressor = :sass
+  config.assets.js_compressor = Uglifier.new(output: {comments: :none})
+  config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
@@ -57,7 +58,7 @@ Rails.application.configure do
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
   # config.cache_store = :memory_store
-  config.cache_store = :file_store, "#{Rails.root.to_s}/public/cache"
+  config.cache_store = :file_store, "#{Rails.root.to_s}/tmp/cache"
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
