@@ -1,11 +1,13 @@
-<% cache(@image) do %>
-	<% if @image.valid? %>
-		window.history.pushState('<%= "#{@image.registration}_#{@image.reference}" %>', 'Arnold Clark Car Image Browser <%= @image.registration %>', '/<%= @image.registration %>/<%= @image.reference %>');
-		window.document.title = 'Arnold Clark Car Image Browser <%= @image.registration %>';
-		_gs('track', '/<%= @image.registration %>/<%= @image.reference %>', 'Arnold Clark Car Image Browser <%= @image.registration %>');
-		$('#images').html('<%= escape_javascript render( partial: 'images', locals: {images: @image.candidate_images_cached}) %>');
-	<% else %>
-		_gs('track', '/error', '<%= @image.errors.full_messages.join(',') %>');
-		$('#images').html('<ul><% @image.errors.full_messages.each do |error| %><li><%= escape_javascript error %></li><% end  %></ul>');
-	<% end %>
+<% if @image.present? %>
+  <% cache(@image) do %>
+    <% if @image.valid? %>
+      window.history.pushState('<%= "#{@image.registration}_#{@image.reference}" %>', 'Arnold Clark Car Image Browser <%= @image.registration %>', '/<%= @image.registration %>/<%= @image.reference %>');
+      window.document.title = 'Arnold Clark Car Image Browser <%= @image.registration %>';
+      _gs('track', '/<%= @image.registration %>/<%= @image.reference %>', 'Arnold Clark Car Image Browser <%= @image.registration %>');
+      $('#images').html('<%= escape_javascript render( partial: 'images', locals: {images: @image.candidate_images_cached}) %>');
+    <% else %>
+      _gs('track', '/error', '<%= @image.errors.full_messages.join(',') %>');
+      $('#images').html('<ul><% @image.errors.full_messages.each do |error| %><li><%= escape_javascript error %></li><% end  %></ul>');
+    <% end %>
+  <% end %>
 <% end %>
