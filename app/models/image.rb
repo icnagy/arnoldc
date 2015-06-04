@@ -1,5 +1,6 @@
 # image.rb
 class Image
+  include Comparable
   include ActiveModel::Model
 
   PICTURE_SIZE = %w(350 800)
@@ -7,8 +8,8 @@ class Image
 
   attr_accessor :registration, :reference
 
-  validates :registration, presence: true, length: { minimum: 7 }
-  validates :reference, presence: true, length: { minimum: 9 }
+  validates :registration, presence: true, length: { minimum: 7 }, allow_blank: false
+  validates :reference, presence: true, length: { minimum: 9 }, allow_blank: false
 
   def initialize(params = {})
     params.each do |attr, value|
@@ -53,5 +54,9 @@ class Image
     Rails.cache.fetch("#{obfuscated_stock_reference}", expires_in: 20.minutes) do
       candidate_images
     end
+  end
+
+  def <=>(anOther)
+    registration <=> anOther.registration
   end
 end

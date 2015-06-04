@@ -25,6 +25,8 @@ well as generating the candidate images
 
 ## Day 3 ##
 
+### Part 1 ###
+
 All working well, but: why do we reproduce the obfuscated stock reference and the candidate images for each request?
 They could be cached, but thinking further, the whole response could be cached.
 
@@ -34,3 +36,20 @@ Several options to consider:
  that can be cached
 
 As of now I go with option 1.
+
+### Part 2 ###
+
+While testing caching I realized that the reference number is not really used by the vcache server. It only uses the
+registration number from the obfuscated reference number.
+
+Anyway, I was not really happy with the images controller design, so I changed it a bit:
+
+* left only the index action in place
+* changed strong parameter validation to handle two cases: js and html
+* added a new option to the parameter whitelisting
+* mapped a new route ':registration/:reference' to images#index action
+* added window.history.pushStat to the ajax response, so the urlbar gets updated on everey search
+
+## Day 4 ##
+
+Addign layout and design.

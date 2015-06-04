@@ -4,6 +4,13 @@
 
 Arnold Clark's coding challenge done by Csaba Nagy (@icnagy).
 
+## TL;DR ##
+
+`
+# run tests with
+rspec
+`
+
 ## The task ##
 
 The task is to write a small utility site that will get a vehicle’s registration plate and stock reference from the user
