@@ -1,7 +1,8 @@
 <% cache(@image) do %>
 	<% if @image.valid? %>
+		window.history.pushState('<%= "#{@image.registration}_#{@image.reference}" %>', 'Arnoldc', '/<%= @image.registration %>/<%= @image.reference %>');
 		$('#images').html('<%= escape_javascript render( partial: 'images', locals: {images: @image.candidate_images_cached}) %>');
 	<% else %>
-		alert('<%= escape_javascript @image.errors.full_messages.join(',') %>');
+		$('#images').html('<%= escape_javascript @image.errors.full_messages.join(',') %>');
 	<% end %>
 <% end %>

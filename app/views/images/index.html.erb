@@ -1,15 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Images</h1>
+<h1>Arnold Clark Car Images</h1>
 
-<%= form_for 'image', method: :get, remote: true do |f| %>
-	<%= f.label :registration %>
+<%= form_for 'image', url: '/images', method: :get, remote: true do |f| %>
+	<%= f.label :registration_number %>
 	<%= f.text_field :registration %>
-	<%= f.label :reference %>
+	<%= f.label :stock_reference_number %>
 	<%= f.text_field :reference %>
 	<%= f.submit 'Show images' %>
 <% end %>
 
 <div id="images">
-
+<% if @image %>
+	  <% cache(@image) do %>
+		  <% if @image.valid? %>
+			  <%= render partial: 'images', locals: {images: @image.candidate_images_cached} %>
+		  <% else %>
+			  <%= @image.errors.full_messages.join(',') %>
+		  <% end %>
+	  <% end %>
+<% end %>
 </div>
