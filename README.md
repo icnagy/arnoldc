@@ -71,9 +71,9 @@ an image.
 
 ### Obfuscated stock reference ###
 
-`The obfuscated stock reference is calculated by interleaving the stock reference with the reversal of the registration
-plate and appending the 9th character of the stock reference and taking the shortest possible solution (i.e. ignore any
-unused characters from the stock reference)`
+```
+The obfuscated stock reference is calculated by interleaving the stock reference with the reversal of the registration plate and appending the 9th character of the stock reference and taking the shortest possible solution (i.e. ignore any unused characters from the stock reference)
+```
 
 ## First steps ##
 
@@ -100,11 +100,11 @@ ActiveRecord:
 I have ruby 2.2.0 and Rails 4.2.0 installed, so I will just use that. I use RVM, so I just let it install the .rvmrc,
 .ruby-version and .version.conf files:
 
-`
-	$ rvm --rvmrc 2.2.0@arnoldc
-	$ rvm --create --ruby-version use 2.2.0@arnoldc
-	$ rvm --create --versions-conf use 2.2.0@arnoldc
-`
+```
+$ rvm --rvmrc 2.2.0@arnoldc
+$ rvm --create --ruby-version use 2.2.0@arnoldc
+$ rvm --create --versions-conf use 2.2.0@arnoldc
+```
 
 ### Git ###
 
@@ -113,6 +113,10 @@ Time to initialize git:
 `git init`
 
 I use IntelliJ's RubyMine for IDE so I update the .gitignore file.
+
+### Archite Decisions ###
+
+See architecture.md
 
 ## Poking around obfuscated sctock reference number ##
 
@@ -128,4 +132,5 @@ These:
 * http://vcache.arnoldclark.com/imageserver/zDzTzYz6z5zKzRz/350/f
 * http://vcache.arnoldclark.com/imageserver/0D0T0Y06050K0R0/350/f
 * http://vcache.arnoldclark.com/imageserver/-D-T-Y-6-5-K-R-/350/f
+
 return the same image.
