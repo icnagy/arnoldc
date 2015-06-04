@@ -1,8 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Arnold Clark Car Images</h1>
-
-<%= form_for 'image', url: '/images', method: :get, remote: true do |f| %>
+<%= form_for 'image', url: '/images', method: :get, remote: true, authenticity_token: true do |f| %>
+	<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 	<%= f.label :registration_number %>
 	<%= f.text_field :registration %>
 	<%= f.label :stock_reference_number %>

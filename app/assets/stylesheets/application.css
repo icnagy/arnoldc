@@ -12,4 +12,74 @@
  *
  *= require_tree .
  *= require_self
+ *= require lightbox
  */
+
+body{
+    background-color: #fafafa;
+    margin: 0px;
+    font-family: "Gotham A","Gotham B",Gotham,Verdana,sans-serif;
+    font-size: 13px;
+    -webkit-text-size-adjust: none;
+    min-height: 100%;
+    font-weight: 400;
+}
+
+.header {
+    padding: 10px 0 6px 0;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 55px;
+    border-top: 1px solid #2E3838;
+    border-bottom: 6px solid #FEDF02;
+    background: #2E3838;
+    color: #EEE;
+}
+
+.header .x {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+}
+
+.header .x #branding{
+    display: block;
+    padding: 0;
+    width: 360px;
+    background: url(http://cdn.arnoldclark.com/assets/images/arnold-clark-logo.png) no-repeat 0 10px;
+    text-indent: -9000px;
+    overflow: hidden;
+    height: 48px;
+}
+
+.content {
+    text-align: center;
+    margin: 72px 0 0 0;
+    padding: 36px 5% 36px 5%;
+}
+
+.footer {
+    color: #EEE;
+    width: 100%;
+    background-color: #2D3737;
+    padding: auto;
+    overflow: hidden;
+    margin: 72px 0 0 0;
+    text-align: center;
+}
+.footer a{
+    color: #eee;
+}
+.footer .disclaimer {
+    background-color: #2A3131;
+    padding: 18px;
+    /*font-size: 2vw;*/
+}
+
+.footer .copyright {
+    background-color: #2A3131;
+    padding: 18px;
+    /*font-size: 2vw;*/
+}
