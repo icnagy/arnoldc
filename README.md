@@ -6,10 +6,10 @@ Arnold Clark's coding challenge done by Csaba Nagy (@icnagy).
 
 ## TL;DR ##
 
-`
+```
 # run tests with
 rspec
-`
+```
 
 ## The task ##
 
