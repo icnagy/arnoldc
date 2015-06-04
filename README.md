@@ -1,5 +1,8 @@
 # Arnold Clark Technical Test #
 
+[ ![Codeship Status for
+icnagy/arnoldc](https://codeship.com/projects/b584e050-ed30-0132-8e05-0eee9d4772fa/status?branch=master)](https://codeship.com/projects/83954)
+
 ## Preface ##
 
 Arnold Clark's coding challenge done by Csaba Nagy (@icnagy).
