@@ -1,11 +1,13 @@
 # images_controller.rb
 class ImagesController < ApplicationController
   def index
-    @image = Image.new(image_params) unless image_params.empty?
-    if stale?(@image)
-      respond_to do |format|
-        format.js
-        format.html
+    unless image_params.empty?
+      @image = Image.new(image_params)
+      if stale?(@image)
+        respond_to do |format|
+          format.js
+          format.html
+        end
       end
     end
   end
