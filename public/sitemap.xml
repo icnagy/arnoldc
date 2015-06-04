@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+
+    <loc>https://arnoldc.heroku.com/</loc>
+    <lastmod>2015-06-04</lastmod>
+    <changefreq>Daily</changefreq>
+    <image:image>
+      <image:loc>http://cdn.arnoldclark.com/assets/images/arnold-clark-logo.png</image:loc>
+      <image:caption>Arnold Clark Automobiles Limited</image:caption>
+      <image:geo_location>Glasgow, Scotland</image:geo_location>
+      <image:title>Arnold Clark Logo</image:title>
+      <<image:license>Arnold Clark Automobiles Limited 2000 – 2015</image:license>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+</urlset>
